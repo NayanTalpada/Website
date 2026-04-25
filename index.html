@@ -268,7 +268,294 @@ void simpleInterest(float *p, float *r, float *t, float *si)
 }
        
        
+//p12
+
+#include<stdio.h> 
+struct library 
+{ 
+   char name[20]; 
+   char author[10]; 
+   int page; 
+   float price; 
+}; 
+int main() 
+{ 
+   struct library s; 
+   printf("Enter Name of Book:- "); 
+   scanf("%s",s.name); 
+   printf("Enter Author Name :- "); 
+   scanf("%s",s.author); 
+   printf("Enter Pages:- "); 
+   scanf("%d",&s.page); 
+   printf("Enter Price:- "); 
+   scanf("%f",&s.price); 
+  
+   printf("Name os Book is %s",s.name); 
+   printf("\nAuthor of book is %s",s.author); 
+   printf("\nPages of Book is %d",s.page); 
+   printf("\nPrice of Book  is %f",s.price);  
+   return 0; 
+} 
        
+//p13
+
+#include<stdio.h> 
+struct calculate  
+{ 
+   int x,y,ans; 
+}c={22,11}; 
+ 
+int main() 
+{ 
+   c.ans=c.x+c.y; 
+   printf("%d + %d = %d",c.x,c.y,c.ans); 
+   c.ans=c.x-c.y; 
+   printf("\n%d - %d = %d",c.x,c.y,c.ans); 
+   c.ans=c.x*c.y; 
+   printf("\n%d * %d = %d",c.x,c.y,c.ans); 
+   c.ans=c.x/c.y; 
+   printf("\n%d / %d = %d",c.x,c.y,c.ans); 
+  
+   return 0; 
+} 
+       
+//p14
+
+#include<stdio.h> 
+struct result 
+{ 
+   int rno,m[9]; 
+   char name[20]; 
+   long int sum; 
+   float per; 
+}; 
+int main() 
+{ 
+  
+   struct result s[5]; 
+   int i,j,n,tot=900; 
+   printf("Enter Num of Record you want to insert:-"); 
+   scanf("%d",&n); 
+   for(i=0;i<n;i++) 
+   { 
+    printf("Enter Name:- "); 
+    scanf("%s",s[i].name); 
+    printf("Enter Roll no:- "); 
+    scanf("%d",&s[i].rno); 
+    s[i].sum=0; 
+   
+    for(j=0;j<9;j++) 
+    { 
+     printf("Enter Marks %d:-",j+1); 
+     scanf("%d",&s[i].m[j]); 
+     s[i].sum=s[i].m[j]+s[i].sum; 
+    } 
+    s[i].per=s[i].sum/9; 
+   } 
+   for(i=0;i<n;i++) 
+   { 
+    printf("Name is %s \n",s[i].name); 
+    printf("Roll no is %d\n",s[i].rno); 
+
+    for(j=0;j<9;j++) 
+    { 
+     printf("Marks %d:- %d\n",j+1,s[i].m[j]); 
+    } 
+    printf("Total is %d\n",s[i].sum); 
+    printf("Per is %f\n",s[i].per); 
+   } 
+   return 0; 
+} 
+       
+//p15
+
+#include<stdio.h> 
+struct person 
+{ 
+   char name[30]; 
+   char city[15]; 
+   int age; 
+}; 
+int main() 
+{ 
+   struct person s[40]; 
+   int i; 
+   for(i=0;i<10;i++) 
+   { 
+    printf("Enter Name %d",i+1); 
+    scanf("%s",s[i].name); 
+    printf("Enter city  %d",i+1); 
+    scanf("%s",s[i].city); 
+    printf("Enter age %d",i+1); 
+    scanf("%d",&s[i].age); 
+   } 
+   char cit[50]; 
+   printf("Enter The City You Want to serach:-"); 
+   scanf("%s",cit); 
+  
+   printf("\n People Living in %s",cit); 
+   for(i=0;i<10;i++) 
+ { 
+    if(strcmp(s[i].city,cit)==0) 
+    { 
+printf("Name is %s,age is %d\n",s[i].name,s[i].age); 
+    } 
+   } 
+   return 0; 
+} 
+       
+//p16
+
+#include<stdio.h> 
+struct student 
+{ 
+   int rno; 
+   char name[20]; 
+   int m1,m2,m3; 
+}; 
+void marksheet(struct student s); 
+int main() 
+{ 
+   struct student s; 
+   printf("Enter Student name:-"); 
+   gets(s.name); 
+   printf("Enter Roll number:- "); 
+   scanf("%d",&s.rno); 
+   printf("Enter Marks1:- "); 
+   scanf("%d",&s.m1); 
+   printf("Enter Marks2:- "); 
+   scanf("%d",&s.m2); 
+   printf("Enter Marks3:- "); 
+   scanf("%d",&s.m3); 
+    marksheet(s); 
+   return 0; 
+} 
+void marksheet(struct student s) 
+{ 
+   printf("Student name is %s\n",s.name); 
+   printf("Roll no is %d\n",s.rno); 
+   printf("Marks 1 is %d\n",s.m1); 
+   printf("Marks 2 is %d\n",s.m2); 
+   printf("Marks 3 is %d\n",s.m3); 
+}
+       
+//p17
+
+#include<stdio.h> 
+int main() 
+{ 
+   int number; 
+   char name[20]; 
+   char city[10]; 
+   FILE *fp; 
+   fp=fopen("stud1.txt","w"); 
+  
+   printf("Entrer Number:- ");
+    scanf("%d",&number); 
+   fprintf(fp,"Roll no is %d",number); 
+   printf("Entrer Name:- "); 
+   scanf("%s",name); 
+   fprintf(fp,"\n name is %s",name); 
+   printf("Entrer City:- "); 
+   scanf("%s",city); 
+   fprintf(fp,"\n city is %s",city); 
+fclose(fp); 
+  return 0; 
+}
+       
+//p18
+
+#include<stdio.h> 
+int main() 
+{ 
+   FILE *fp; 
+   char c[50]; 
+   fp=fopen("stud1.txt","r"); 
+   while(fgets(c,50,fp)!=NULL) 
+   { 
+    printf("%s",c); 
+   } 
+   fclose(fp); 
+   return 0; 
+} 
+       
+       
+//p19
+
+#include<stdio.h> 
+int main() 
+{ 
+   FILE *fp,*fp1; 
+   char c; 
+   fp=fopen("stud1.txt","r"); 
+   fp1=fopen("stud2.txt","w"); 
+   while((c=fgetc(fp))!=EOF) 
+   { 
+    fputc(c,fp1); 
+   } 
+   fclose(fp); 
+   fclose(fp1); 
+   return 0;  
+}
+       
+//p20
+
+#include<stdio.h> 
+int main() 
+{ 
+   FILE *fp; 
+   char ch; 
+   int U=0,L=0,S=0,c=0; 
+   fp=fopen("stud1.txt","r"); 
+   while((ch=fgetc(fp))!=EOF) 
+   { 
+    if(isupper(ch)) 
+    { 
+     U++; 
+    }
+else if(islower(ch)) 
+    { 
+     L++; 
+    } 
+    else if(isspace(ch)) 
+    { 
+     S++; 
+    } 
+    else 
+    { 
+     c++; 
+    } 
+   } 
+   printf("\n Upper case =%d",U); 
+   printf("\n Lower case =%d",L); 
+   printf("\n space is  =%d",S); 
+   printf("\n special character =%d",c); 
+   return 0; 
+}        
+//p21
+
+#include<stdio.h> 
+int main() 
+{ 
+   FILE *fp,*fp1; 
+   char ch; 
+   fp=fopen("stud1.txt","a"); 
+   fp1=fopen("stud2.txt","r"); 
+   while((ch=fgetc(fp1))!=EOF) 
+   { 
+    putc(ch,fp);
+       } 
+   fclose(fp); 
+   fclose(fp1); 
+   return 0; 
+}  
+
+
+
+       
+
+
+
        
        
        
